@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function () {
+export default function Card() {
   return (
     <div className="flex flex-col border rounded-xl pt-3 px-3">
       <div>

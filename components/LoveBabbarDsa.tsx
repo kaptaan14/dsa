@@ -20,6 +20,7 @@ export default function LoveBabbar() {
 
   const [complete, setComplete] = useState<number>(0);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const storedData: string | null = localStorage.getItem("completedItems");
     if (storedData) {
@@ -28,6 +29,7 @@ export default function LoveBabbar() {
     console.log(done);
   }, [complete]);
 
+  
   const toggleCompletion = (index: number) => {
     setDone((prev) =>
       prev.map((prevDone, i) =>
@@ -38,6 +40,7 @@ export default function LoveBabbar() {
     );
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     let count = 0;
     done.map((item: any, index: number) => {
@@ -46,11 +49,13 @@ export default function LoveBabbar() {
     setComplete(count);
   }, [done]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const per = ((complete / 450) * 100).toFixed(2);
     setPercent(parseFloat(per));
   }, [complete]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     localStorage.setItem("completedItems", JSON.stringify(done));
   }, [done]);
