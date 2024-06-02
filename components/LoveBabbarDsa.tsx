@@ -1,7 +1,10 @@
 "use client";
+
+
 import { useEffect, useState } from "react";
 import { initialData } from "@/data/dsaBabbar";
 import Image from "next/image";
+
 
 interface Data {
   question: string;
@@ -14,19 +17,25 @@ export default function LoveBabbar() {
     (data) => data !== undefined
   ) as Data[];
   const [done, setDone] = useState<Data[]>(() => {
-    const storedData = localStorage.getItem("completedItems");
-    return storedData ? JSON.parse(storedData) : filteredInitialData;
+    if (typeof window !== "undefined") {
+      const storedData = localStorage.getItem("completedItems");
+      return storedData ? JSON.parse(storedData) : filteredInitialData;
+    } else {
+      return filteredInitialData;
+    }
   });
 
   const [complete, setComplete] = useState<number>(0);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    const storedData: string | null = localStorage.getItem("completedItems");
-    if (storedData) {
-      setDone(JSON.parse(storedData));
+    if (typeof window !== "undefined") {
+      const storedData: string | null = localStorage.getItem("completedItems");
+      if (storedData) {
+        setDone(JSON.parse(storedData));
+      }
     }
-    console.log(done);
+    // console.log(done);
   }, [complete]);
 
   const toggleCompletion = (index: number) => {
@@ -111,35 +120,9 @@ export default function LoveBabbar() {
                 onClick={() => toggleCompletion(index)}
               >
                 {item.isCompleted ? (
-                  <svg
-                    className="w-6 h-6  text-green-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
+                  <Image  width={25} height={25}  src="/tick.svg" alt="" />
                 ) : (
-                  <svg
-                    className="w-6 h-6 text-red-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
+                  <Image width={25} height={25} src="/nottick.svg" alt="" />
                 )}
               </td>
             </tr>

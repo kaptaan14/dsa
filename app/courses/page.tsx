@@ -1,4 +1,6 @@
-import CourseCard from "@/components/ui/CourseCard";
+"use client"
+
+// import CourseCard from "@/components/ui/CourseCard";
 
 export default function courserPage(){
     return(
