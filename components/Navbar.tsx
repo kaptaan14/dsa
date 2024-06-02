@@ -43,11 +43,13 @@ const Navbar = () => {
           </Link>
         </div>
       )}
-      <div className={`sm:hidden cursor-pointer`} onClick={toggleMenu}>
+      <div className={`sm:hidden cursor-pointer flex items-center`} onClick={toggleMenu}>
         {!menuOpen ? (
-          <Image className="w-8 h-8" src="/hamburger.svg" alt="" />
+          <Image width={20}
+          height={20} src="/hamburger.svg" alt="" />
         ) : (
-          <Image className="w-8 h-8" src="/cross.svg" alt="" />
+          <Image width={20}
+          height={20} src="/cross.svg" alt="" />
         )}
       </div>
       <div

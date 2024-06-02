@@ -29,7 +29,6 @@ export default function LoveBabbar() {
     console.log(done);
   }, [complete]);
 
-  
   const toggleCompletion = (index: number) => {
     setDone((prev) =>
       prev.map((prevDone, i) =>
@@ -57,7 +56,9 @@ export default function LoveBabbar() {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    localStorage.setItem("completedItems", JSON.stringify(done));
+    if (typeof window !== "undefined") {
+      localStorage.setItem("completedItems", JSON.stringify(done));
+    }
   }, [done]);
 
   const [percent, setPercent] = useState<number>(0);
@@ -102,7 +103,7 @@ export default function LoveBabbar() {
                   target="_blank"
                   className="cursor-pointer hover:bg-slate-100  flex items-center justify-center py-2"
                 >
-                  <Image className="w-6 h-6" src="/gfg.svg" alt="Leetcode" />
+                  <Image width={25} height={25} src="/gfg.svg" alt="Leetcode" />
                 </a>
               </td>
               <td
