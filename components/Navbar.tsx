@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
@@ -44,9 +45,9 @@ const Navbar = () => {
       )}
       <div className={`sm:hidden cursor-pointer`} onClick={toggleMenu}>
         {!menuOpen ? (
-          <img className="w-8 h-8" src="/hamburger.svg" alt="" />
+          <Image className="w-8 h-8" src="/hamburger.svg" alt="" />
         ) : (
-          <img className="w-8 h-8" src="/cross.svg" alt="" />
+          <Image className="w-8 h-8" src="/cross.svg" alt="" />
         )}
       </div>
       <div

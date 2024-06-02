@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { initialData } from "@/data/dsaBabbar";
+import Image from "next/image";
 
 interface Data {
   question: string;
@@ -96,7 +97,7 @@ export default function LoveBabbar() {
                   target="_blank"
                   className="cursor-pointer hover:bg-slate-100  flex items-center justify-center py-2"
                 >
-                  <img className="w-6 h-6" src="/gfg.svg" alt="Leetcode" />
+                  <Image className="w-6 h-6" src="/gfg.svg" alt="Leetcode" />
                 </a>
               </td>
               <td

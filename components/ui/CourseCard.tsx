@@ -1,8 +1,10 @@
+import Image from "next/image";
+
 export default function CourseCard() {
   return (
     <div className="flex flex-col border rounded-xl pt-3 px-3 ">
         <div className="p-3">
-            <img src="./next.svg" alt="" className="bg-cover"/>
+            <Image src="./next.svg" alt="" className="bg-cover"/>
         </div>
         <hr />
       <div className="flex flex-row justify-between">
