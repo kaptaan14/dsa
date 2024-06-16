@@ -29,12 +29,17 @@ const Navbar = () => {
     const num = emoji[Math.floor(Math.random() * emoji.length)];
     setEmo(num);
   }, []);
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
+  const handleLinkClick = () => {
+    setMenuOpen(false);
+  };
+
   return (
-    <div className={`flex flex-row  justify-between sm:justify-around p-5 border border-black w-screen bg-white fixed top-0 z-50`}>
+    <div className={`flex flex-row w-full sm:w-screen justify-between sm:justify-around p-5 border border-black bg-white fixed top-0 z-50`}>
       {!menuOpen && (
         <div className="cursor-pointer">
           <Link href={"/"}>
@@ -45,11 +50,9 @@ const Navbar = () => {
       )}
       <div className={`sm:hidden cursor-pointer flex items-center`} onClick={toggleMenu}>
         {!menuOpen ? (
-          <Image width={20}
-          height={20} src="/hamburger.svg" alt="" />
+          <Image width={20} height={20} src="/hamburger.svg" alt="hamburger icon" />
         ) : (
-          <Image width={20}
-          height={20} src="/cross.svg" alt="" />
+          <Image width={20} height={20} src="/cross.svg" alt="cross icon" />
         )}
       </div>
       <div
@@ -57,9 +60,9 @@ const Navbar = () => {
           menuOpen ? "flex" : "hidden"
         }  sm:flex gap-10 items-center justify-center sm:justify-end underline`}
       >
-        <Link href={"/dsa"}>DSA</Link>
-        <Link href={"/courses"}>Courses</Link>
-        <Link href={"/projects"}>Projects</Link>
+        <Link href={"/dsa"} onClick={handleLinkClick}>DSA</Link>
+        <Link href={"/courses"} onClick={handleLinkClick}>Courses</Link>
+        <Link href={"/projects"} onClick={handleLinkClick}>Projects</Link>
       </div>
       <h1 className="hidden sm:flex text-3xl text-center cursor-pointer">
         {emo}

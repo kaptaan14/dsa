@@ -70,10 +70,10 @@
     const [percent, setPercent] = useState<number>(0);
 
     return (
-      <div className="overflow-x-auto mt-24  sm:px-60 flex flex-col items-center justify-center">
-        <h1 className="font-bold text-4xl pb-5">Love Babbar 450 DSA</h1>
+      <div className="mt-24 flex flex-col items-center justify-center mx-2 sm:mx-30 md:mx-60">
+        <h1 className="font-bold text-4xl p-5 bg-yellow-300 rounded-lg">Love Babbar 450 DSA</h1>
         <p className="mb-4">Completed : {complete}/450</p>
-        <div className="h-6 bg-gray-200 w-full mb-4">
+        <div className="h-6 bg-gray-200 w-full	 mb-4">
           <div
             className={`h-full bg-blue-500 text-center`}
             style={{ width: `${percent}%` }}
@@ -84,16 +84,16 @@
         <table className=" divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+              <th className=" text-left text-xs font-medium text-gray-500 uppercase">
                 S.No
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+              <th className="text-left text-xs font-medium text-gray-500 uppercase">
                 Question
               </th>
-              <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase ">
+              <th className="text-center text-xs font-medium text-gray-500 uppercase ">
                 Link
               </th>
-              <th className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
+              <th className="text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
                 Completed
               </th>
             </tr>
@@ -102,20 +102,18 @@
             {done.map((item:any, index: number) => (
               <tr key={index}>
                 <td className=" text-center ">{index + 1}.</td>
-                <td className="border font-bold  px-4">{item?.question}</td>
-                <td className="  ">
+                <td className="border font-bold">{item?.question}</td>
+                <td className="sm:px-4">
                   <a
                     href={item?.link}
                     target="_blank"
-                    className="cursor-pointer hover:bg-slate-100  flex items-center justify-center py-2"
+                    className="flex cursor-pointer hover:bg-slate-300 rounded-full p-1 items-center justify-center"
                   >
-
-                     
                     <Image width={25} height={25} src="/gfg.svg" alt="Leetcode" />
                   </a>
                 </td>
                 <td
-                  className="flex h-full justify-center whitespace-nowrap text-center my-1 py-2 bg-yellow-200 cursor-pointer"
+                  className="flex flex-row h-full items-center justify-center  text-center bg-yellow-200 cursor-pointer border py-10"
                   onClick={() => toggleCompletion(index)}
                 >
                   {item?.isCompleted ? (
